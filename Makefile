@@ -127,7 +127,7 @@ fix-dep: fix-mod-tidy
 
 .PHONY: verify-lint
 verify-lint: install-golangci-lint
-	PASSES="lint" ./scripts/test.sh
+	./scripts/verify/lint.sh
 
 .PHONY: fix-lint
 fix-lint: install-golangci-lint
@@ -139,7 +139,7 @@ verify-shellcheck:
 
 .PHONY: verify-mod-tidy
 verify-mod-tidy:
-	PASSES="mod_tidy" ./scripts/test.sh
+	./scripts/verify/mod_tidy.sh
 
 .PHONY: fix-mod-tidy
 fix-mod-tidy:
@@ -222,11 +222,11 @@ clean:
 
 .PHONY: verify-go-versions
 verify-go-versions:
-	./scripts/verify_go_versions.sh
+	./scripts/verify/go_versions.sh
 
 .PHONY: verify-gomodguard
 verify-gomodguard:
-	PASSES="gomodguard" ./scripts/test.sh
+	./scripts/verify/gomodguard.sh
 
 .PHONY: verify-go-workspace
 verify-go-workspace:
@@ -234,7 +234,7 @@ verify-go-workspace:
 
 .PHONY: verify-grpc-experimental
 verify-grpc-experimental:
-	./scripts/verify_grpc_experimental.sh
+	./scripts/verify/grpc_experimental.sh
 
 .PHONY: sync-toolchain-directive
 sync-toolchain-directive:
