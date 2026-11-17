@@ -119,7 +119,7 @@ fix-bom:
 
 .PHONY: verify-dep
 verify-dep:
-	PASSES="dep" ./scripts/test.sh
+	./scripts/verify/dep.sh
 
 .PHONY: fix-dep
 fix-dep: fix-mod-tidy
@@ -135,7 +135,7 @@ fix-lint: install-golangci-lint
 
 .PHONY: verify-shellcheck
 verify-shellcheck:
-	PASSES="shellcheck" ./scripts/test.sh
+	./scripts/verify/shellcheck.sh
 
 .PHONY: verify-mod-tidy
 verify-mod-tidy:
